@@ -9,7 +9,7 @@ const Modal = ({ visible, setVisible }) => {
  
     const headerElement = (
         <div className="inline-flex align-items-center justify-content-center gap-2">
-            <span className="font-bold white-space-nowrap">Amy Elsner</span>
+            <span className="font-bold white-space-nowrap">tes</span>
         </div>
     );
 

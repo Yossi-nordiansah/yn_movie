@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from './components/modal';
+import Modal from './components/Modal';
 import { Button } from 'primereact/button';
 import Navbar from './components/Navbar';
 import SearchInput from './components/SearchInput';
