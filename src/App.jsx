@@ -3,6 +3,7 @@ import Modal from './components/Modal';
 import { Button } from 'primereact/button';
 import Navbar from './components/Navbar';
 import SearchInput from './components/SearchInput';
+import CardContainer from './components/CardContainer';
 
 const App = () => {
 
@@ -12,6 +13,7 @@ const App = () => {
         <>
             <Navbar/>
             <SearchInput/>
+            <CardContainer/>
             <Button label="Show" icon="pi pi-external-link" onClick={() => setVisible(true)} />
             <Modal visible={visible} setVisible={setVisible} />
         </>
