@@ -12,7 +12,6 @@ const App = () => {
         <>
             <Navbar/>
             <SearchInput/>
-            
             <Button label="Show" icon="pi pi-external-link" onClick={() => setVisible(true)} />
             <Modal visible={visible} setVisible={setVisible} />
         </>
