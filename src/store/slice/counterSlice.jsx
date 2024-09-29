@@ -10,5 +10,3 @@ export const counterSlice = createSlice({
     reducers: {
     },
 })
-
-console.log(counterSlice, "counterslice");
