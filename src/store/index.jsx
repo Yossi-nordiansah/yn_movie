@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { counterSlice } from "./slice/counterSlice";
+import { dataFilmSlice } from "./slice/dataFilmSlice";
 
 const store = configureStore({
     reducer: {
-        counterSlice: counterSlice.reducer
+        dataFilmSlice : dataFilmSlice.reducer
     },
 });
 
