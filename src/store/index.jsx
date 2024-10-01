@@ -3,7 +3,7 @@ import { dataFilmSlice } from "./slice/dataFilmSlice";
 
 const store = configureStore({
     reducer: {
-        dataFilmSlice : dataFilmSlice.reducer
+        dataFilm : dataFilmSlice.reducer
     },
 });
 

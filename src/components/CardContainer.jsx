@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import Card from './Card';
-import tes from '../assets/avengers.jpg'
+import { useSelector } from 'react-redux';
+import Card from "./Card"
 
 const CardContainer = () => {
 
-  const [data, setData] = useState({
-    id : 1,
-    title : 'tes title',
-    year : '2003',
-    image : "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg"
-  })
-  
+  const dataFilm = useSelector(state=>(state.dataFilm.dataFilm.data));
+  console.log(dataFilm);
+
   return (
-    <div className='flex justify-between mx-auto w-11/12 gap-3 mt-10 border'>
-      <Card title={data.title} year={data.year} image={data.image}/>
+    <div>
+        {dataFilm? (
+        <div className='flex justify-between mx-auto w-11/12 gap-3 mt-10 border'>
+          {dataFilm.map((film, index) => (
+            <Card key={film.imdbID} title={film.Title} year={film.Year} image={film.Poster}/>
+          ))}
+        </div>
+      ) : (
+        <p>No movies found</p>
+      )}
+      
     </div>
   )
 }

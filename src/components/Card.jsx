@@ -3,10 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Card = ({title, image, year}) => {
 
-  const dispatch = useDispatch();
-
   return (
-    <div className='bg-blue-300 w-1/5 rounded-xl overflow-hidden'>
+    <div className='bg-blue-300 w-[150px] rounded-xl overflow-hidden'>
         <img src={image} alt="" className='mx-auto'/>
         <div className='text-center p-2'>
             <p>{title}</p>
