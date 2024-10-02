@@ -41,7 +41,6 @@ export function getDataFilm(query){
                 totalResults: response.data.totalResults
             }));
             const state = getState();
-            // console.log(state.dataFilm);
         } catch (error) {
             console.log(error);
         }

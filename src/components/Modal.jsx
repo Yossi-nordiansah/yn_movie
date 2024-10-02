@@ -4,8 +4,12 @@ import { Button } from 'primereact/button';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import { useDispatch } from 'react-redux';
+import { hideModal } from '../store/slice/modalSlice';
 
-const Modal = ({ visible, setVisible }) => {
+const Modal = ({ visible }) => {
+
+    const dispatch = useDispatch();
  
     const headerElement = (
         <div className="inline-flex align-items-center justify-content-center gap-2">
@@ -15,12 +19,12 @@ const Modal = ({ visible, setVisible }) => {
 
     const footerContent = (
         <div>
-            <Button label="Ok" icon="pi pi-check" onClick={() => setVisible(false)} autoFocus />
+            <Button label="Ok" icon="pi pi-check" onClick={() => dispatch(hideModal())} autoFocus />
         </div>
     );
 
     return (
-        <Dialog visible={visible} modal header={headerElement} footer={footerContent} style={{ width: '50rem' }} onHide={() => setVisible(false)}>
+        <Dialog visible={visible} modal header={headerElement} footer={footerContent} style={{ width: '50rem' }} onHide={() => dispatch(hideModal())}>
             <p className="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
