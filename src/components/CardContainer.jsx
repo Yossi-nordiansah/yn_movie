@@ -10,7 +10,7 @@ const CardContainer = () => {
   return (
     <div>
         {dataFilm? (
-        <div className='flex justify-between mx-auto w-11/12 gap-3 mt-10 border'>
+        <div className='flex justify-between mx-auto w-11/12 gap-3 mt-10 border flex-wrap'>
           {dataFilm.map((film, index) => (
             <Card key={film.imdbID} title={film.Title} year={film.Year} image={film.Poster}/>
           ))}
