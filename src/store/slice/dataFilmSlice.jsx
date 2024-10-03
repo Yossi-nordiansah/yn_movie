@@ -26,7 +26,7 @@ export const dataFilmSlice = createSlice({
             state.error = action.payload;
             state.isLoading = false;
         }
-    }
+    } 
 });
 
 export const { setDataFilm, setLoading, setError } = dataFilmSlice.actions;
