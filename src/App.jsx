@@ -12,11 +12,13 @@ const App = () => {
 
     return (
         <div className='min-h-screen'>
+            <div className='dark:bg-blue-950'>
                 <Navbar />
                 <SearchInput />
                 <CardContainer />
-                <Modal visible={isModalVisible} />
-                <Footer/>
+            </div>
+            <Modal visible={isModalVisible} />
+            <Footer />
         </div>
     );
 }
