@@ -16,7 +16,7 @@ export const modalSlice = createSlice({
         },
         hideModal: (state) => {
             state.visible = false;
-            state.cardDetails =  null;
+            state.detailDataFilm = null;
         },
         setDetailDataFilm : (state, action) => {
             state.detailDataFilm = action.payload;
@@ -28,17 +28,22 @@ export const modalSlice = createSlice({
     }
 });
 
-export const getDetailDataFilm = (title) => {
-    return async (dispatch) => {
+export const { showModal, hideModal, setIsLoading,  setDetailDataFilm } = modalSlice.actions;
+
+export const getDetailDataFilm = (id) => {
+    return async (dispatch, getState) => {
         dispatch(setIsLoading());
         try {
-            const response = await axios.get(`http://www.omdbapi.com/?apikey=966fb1b7&t=${title}`);
+            const response = await axios.get(`http://www.omdbapi.com/?apikey=966fb1b7&i=${id}`);
+            dispatch(setDetailDataFilm(response.data));
             console.log(response.data)
-            dispatch(setDetailDatalFilm(response.data))
+            const state = getState();
+            console.log(state.modalSlice.detailDataFilm); 
         } catch (error) {
             console.log(error)
         }
     } 
 }
 
-export const { showModal, hideModal, setIsLoading, setDetailDatalFilm } = modalSlice.actions;
+
+ 

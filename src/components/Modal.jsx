@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { hideModal } from '../store/slice/modalSlice';
+import isLoading from '../assets/loading.gif';
 
 const Modal = ({ visible }) => {
 
     const dispatch = useDispatch();
- 
+
+    const detailDataFilm = useSelector((state) => state.modalDetail.detailDataFilm);
+    const loading = useSelector(state => state.modalDetail.isLoading)
+
     const headerElement = (
         <div className="inline-flex align-items-center justify-content-center gap-2">
-            <span className="font-bold white-space-nowrap">tes</span>
+            <span className="font-bold white-space-nowrap">{detailDataFilm ? detailDataFilm.Title : "Loading..."}</span>
         </div>
     );
 
@@ -24,11 +28,18 @@ const Modal = ({ visible }) => {
     );
 
     return (
-        <Dialog visible={visible} modal header={headerElement} footer={footerContent} style={{ width: '50rem' }} onHide={() => dispatch(hideModal())}>
-            <p className="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+        <Dialog visible={visible} modal header={headerElement} footer={footerContent} onHide={() => dispatch(hideModal())}>
+            {detailDataFilm ? <div className='flex'>
+                <div className="flex justify-content-center align-items-center">
+                    <img src={detailDataFilm.Poster} alt="Loading..." />
+                </div>
+                <div>
+                    <div>
+                        <p className='font-semibold'>Title :</p>
+                        <p>{detailDataFilm.Title}</p>
+                    </div>
+                </div>
+            </div> : <img src={isLoading}/>}
         </Dialog>
     );
 }

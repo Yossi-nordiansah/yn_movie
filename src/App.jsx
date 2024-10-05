@@ -7,14 +7,14 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
 
-    const visible = useSelector((state) => state.modalDetail.visible);
+    const isModalVisible = useSelector((state) => state.modalDetail.visible);
 
     return (
         <>
                 <Navbar />
                 <SearchInput />
                 <CardContainer />
-                <Modal visible={visible} />
+                <Modal visible={isModalVisible} />
         </>
     );
 }

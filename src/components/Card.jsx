@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { showModal } from '../store/slice/modalSlice';
 import { getDetailDataFilm } from '../store/slice/modalSlice';
 
-const Card = ({title, image, year}) => {
+const Card = ({title, image, year, id}) => {
 
   const dispatch = useDispatch();
 
   const handleLihatDetail = () => {
+    dispatch(getDetailDataFilm(id));
     dispatch(showModal());
-    dispatch(getDetailDataFilm(title));
   }
 
   return (
