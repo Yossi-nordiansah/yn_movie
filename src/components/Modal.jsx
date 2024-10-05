@@ -28,15 +28,31 @@ const Modal = ({ visible }) => {
     );
 
     return (
-        <Dialog visible={visible} modal header={headerElement} footer={footerContent} onHide={() => dispatch(hideModal())}>
-            {detailDataFilm ? <div className='flex'>
-                <div className="flex justify-content-center align-items-center">
-                    <img src={detailDataFilm.Poster} alt="Loading..." />
+        <Dialog visible={visible} modal header={headerElement} position='center' footer={footerContent} onHide={() => dispatch(hideModal())}>
+            {detailDataFilm ? <div className='flex gap-6 justify-between flex-wrap'>
+                <div className="flex justify-content-center align-items-center min-w-32">
+                    <img src={detailDataFilm.Poster} alt="Loading..." className='min-w-32'/>
                 </div>
-                <div>
-                    <div>
-                        <p className='font-semibold'>Title :</p>
-                        <p>{detailDataFilm.Title}</p>
+                <div className='max-w-72'>
+                    <div className='mb-2'>
+                        <p className='font-semibold'>Genre :</p>
+                        <p>{detailDataFilm.Genre}</p>
+                    </div>
+                    <div className='mb-2'>
+                        <p className='font-semibold'>Plot :</p>
+                        <p>{detailDataFilm.Plot}</p>
+                    </div>
+                    <div className='mb-2 flex gap-2'>
+                        <p className='font-semibold'>Released :</p>
+                        <p>{detailDataFilm.Released}</p>
+                    </div>
+                    <div className='mb-2'>
+                        <p className='font-semibold'>Actor :</p>
+                        <p>{detailDataFilm.Actors}</p>
+                    </div>
+                    <div className='mb-2'>
+                        <p className='font-semibold'>Rating :</p>
+                        <p>{detailDataFilm.imdbRating}</p>
                     </div>
                 </div>
             </div> : <img src={isLoading}/>}
