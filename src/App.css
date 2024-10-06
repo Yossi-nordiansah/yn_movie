@@ -1,0 +1,4 @@
+.custom-overlay .p-dialog-mask {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border : 5px solid black
+}
