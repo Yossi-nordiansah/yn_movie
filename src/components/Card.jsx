@@ -14,7 +14,7 @@ const Card = ({ title, image, year, id }) => {
 
   return (
     <div className='shadow-md dark:shadow-lg bg-gray-200 dark:bg-gray-600 sm:min-w-[300px] min-w-[280px] max-w-[300px] rounded-md mb-10 overflow-hidden'>
-      <img src={image} alt="" className='mx-auto w-full h-96' />
+      <img src={image} alt={title} className='mx-auto w-full h-96' />
       <div className='text-center py-3 px-3'>
         <p className='font-bold text-ellipsis whitespace-nowrap overflow-hidden dark:text-white'>{title}</p>
         <p className='dark:text-white mb-2'>{year}</p>

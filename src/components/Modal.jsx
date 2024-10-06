@@ -13,7 +13,6 @@ const Modal = ({ visible }) => {
     const dispatch = useDispatch();
 
     const detailDataFilm = useSelector((state) => state.modalDetail.detailDataFilm);
-    const loading = useSelector(state => state.modalDetail.isLoading)
 
     const headerElement = (
         <div className="inline-flex align-items-center justify-content-center gap-2">
@@ -28,12 +27,12 @@ const Modal = ({ visible }) => {
     );
 
     return (
-        <Dialog visible={visible} modal header={headerElement} position='center' footer={footerContent} onHide={() => dispatch(hideModal())}>
-            {detailDataFilm ? <div className='flex gap-6 justify-between flex-wrap'>
-                <div className="flex justify-content-center align-items-center min-w-32">
-                    <img src={detailDataFilm.Poster} alt="Loading..." className='min-w-32'/>
+        <Dialog visible={visible} modal header={headerElement} position='center' className='md:w-[680px] w-5/6' footer={footerContent} onHide={() => dispatch(hideModal())}>
+            {detailDataFilm ? <div className='flex gap-6 md:justify-between flex-wrap justify-center'>
+                <div className="flex justify-content-center align-items-center min-w-32 shadow-lg">
+                    <img src={detailDataFilm.Poster} alt={detailDataFilm.Title} className='min-w-32'/>
                 </div>
-                <div className='max-w-72'>
+                <div className='md:max-w-72 w-full'>
                     <div className='mb-2'>
                         <p className='font-semibold'>Genre :</p>
                         <p>{detailDataFilm.Genre}</p>
@@ -55,7 +54,7 @@ const Modal = ({ visible }) => {
                         <p>{detailDataFilm.imdbRating}</p>
                     </div>
                 </div>
-            </div> : <img src={isLoading}/>}
+            </div> : <img src={isLoading} className='mx-auto'/>}
         </Dialog>
     );
 }
