@@ -51,7 +51,6 @@ export function getDataFilm(query){
                 }));
             } else {
                 dispatch(setErrorMessage(response.data.Error));
-                // dispatch(setDataFilm(null));
                 console.log(response.data.Error)
             }
         } catch (error) {
