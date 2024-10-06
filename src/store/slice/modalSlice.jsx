@@ -34,7 +34,7 @@ export const getDetailDataFilm = (id) => {
     return async (dispatch, getState) => {
         dispatch(setIsLoading());
         try {
-            const response = await axios.get(`http://www.omdbapi.com/?apikey=966fb1b7&i=${id}`);
+            const response = await axios.get(`https://www.omdbapi.com/?apikey=966fb1b7&i=${id}`);
             dispatch(setDetailDataFilm(response.data));
             console.log(response.data)
             const state = getState();

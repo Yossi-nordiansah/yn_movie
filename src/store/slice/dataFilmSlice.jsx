@@ -35,7 +35,7 @@ export function getDataFilm(query){
     return async (dispatch, getState) => {
         dispatch(setLoading());
         try {
-            const response = await axios.get(`http://www.omdbapi.com/?apikey=966fb1b7&s=${query}`);
+            const response = await axios.get(`https://www.omdbapi.com/?apikey=966fb1b7&s=${query}`);
             dispatch(setDataFilm({
                 data: response.data.Search,
                 totalResults: response.data.totalResults

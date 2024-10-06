@@ -12,7 +12,7 @@ const App = () => {
 
     return (
         <div className='min-h-screen'>
-            <div className='dark:bg-blue-950'>
+            <div className='dark:bg-gradient-to-b from-blue-950 to-blue-900'>
                 <Navbar />
                 <SearchInput />
                 <CardContainer />
