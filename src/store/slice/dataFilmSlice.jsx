@@ -42,7 +42,6 @@ export function getDataFilm(query){
         dispatch(setLoading());
         try {
             const response = await axios.get(`https://www.omdbapi.com/?apikey=966fb1b7&s=${query}`);
-            console.log(response.data)
             if (response.data.Response === "True"){
                 dispatch(setDataFilm({
                     data: response.data.Search,
