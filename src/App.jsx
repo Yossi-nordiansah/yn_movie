@@ -11,14 +11,14 @@ const App = () => {
     const isModalVisible = useSelector((state) => state.modalDetail.visible);
 
     return (
-        <div className='min-h-screen'>
-            <div className='dark:bg-gradient-to-b from-slate-950 to-slate-900'>
+        <div>
+            <div className={`dark:bg-gradient-to-b from-slate-950 to-slate-900 ${isModalVisible ? 'brightness-50 pointer-events-none backdrop-brightness-90' : 'brightness-100'}`}>
                 <Navbar />
                 <SearchInput />
                 <CardContainer />
             </div>
             <Modal visible={isModalVisible} />
-            <Footer />
+            <Footer visible={isModalVisible}/>
         </div>
     );
 }
