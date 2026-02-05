@@ -1,0 +1,25 @@
+name: CI Next.js Docker
+
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Run build
+              run: npm run build
+
+            - name: Build Docker image
+              run: docker build -t yn-movie .
